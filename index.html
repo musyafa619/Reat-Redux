@@ -19,11 +19,36 @@
 
     <script type="text/babel">
       class App extends React.Component {
+        state = {
+          name: 'Musyafa',
+          age: 18
+        };
+
+        handleClick = e => {
+          // console.log(e.target);
+          this.setState({
+            name: 'Khoirul'
+          });
+          console.log(this.state);
+        };
+
+        onMouseOver(e) {
+          console.log(e.target, e.pageX);
+        }
+
+        onCopy(e) {
+          console.log('Kan ga boleh di copy !!!');
+        }
         render() {
           return (
             <div className='app-content'>
               <h1>Hello World</h1>
-              <p>{Math.random() * 10}</p>
+              <p>
+                My Name is {this.state.name} and I am {this.state.age}
+              </p>
+              <button onClick={this.handleClick}>Click Me</button>
+              <button onMouseOver={this.onMouseOver}>Hover Me</button>
+              <p onCopy={this.onCopy}>Ga boleh di copy</p>
             </div>
           );
         }
